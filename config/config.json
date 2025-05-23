@@ -1,0 +1,5 @@
+{
+  "source_dir": "/home/usuario/documentos",
+  "s3_bucket": "meu-bucket-de-backup",
+  "log_file": "logs/backup.log"
+}
