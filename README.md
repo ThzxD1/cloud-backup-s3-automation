@@ -31,3 +31,35 @@ cloud-backup-s3-automation/
 ├── requirements.txt       # Dependências do projeto
 ├── README.md              # Instruções e documentação             
 └── .gitignore             # Arquivos e pastas ignorados pelo Git
+
+## 🔧 Configuração (config/config.json)
+```json
+{
+  "source_dir": "/caminho/dos/arquivos",
+  "s3_bucket": "nome-do-bucket",
+  "log_file": "logs/backup.log",
+  "compression": "zip",      // ou "tar" ou "none"
+  "incremental": true        // evita reenvio de arquivos inalterados
+}
+```
+| Parâmetro       | Descrição                                      | Opções                |
+|------------------|------------------------------------------------|------------------------|
+| `source_dir`     | Caminho da pasta a ser enviada                 | Ex: `/home/user/data` |
+| `s3_bucket`      | Nome do bucket S3 de destino                   | Ex: `backup-cloud`    |
+| `log_file`       | Caminho do arquivo de log                      | Ex: `logs/backup.log` |
+| `compression`    | Tipo de compressão antes do envio              | `zip`, `tar`, `none`  |
+| `incremental`    | Ativa o envio apenas de arquivos alterados     | `true`, `false`       |
+
+## 🔍 Testes Locais
+
+Antes de agendar com `cron`, execute manualmente:
+
+```bash
+python3 backup/main.py
+
+
+## ✨ Novidades
+
+- ✅ Suporte a compressão `.zip` e `.tar.gz` (configurável)
+- ✅ Backup incremental com verificação de hash SHA1
+- ✅ Upload seguro e com metadados no S3
