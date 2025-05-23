@@ -56,7 +56,7 @@ Antes de agendar com `cron`, execute manualmente:
 
 ```bash
 python3 backup/main.py
-
+```
 
 ## ✨ Novidades
 
